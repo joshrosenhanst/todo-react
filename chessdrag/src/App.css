@@ -21,10 +21,19 @@
   cursor: pointer;
 }
 
-.App .SquareContainer.isMoveable:hover .Square{
+.App .SquareContainer.isMoveable{
   background-color:#008c1f;
 }
 
+.App .innerSquareContainer{
+  width:100%;
+  height:100%;
+  position:relative;
+  background-color:green;
+}
+.App .innerSquareContainer.isOver{
+  background-color:yellow;
+}
 .App .Square{
   text-align:center;
   width:100%;
@@ -43,6 +52,11 @@
 
 .App .KnightContainer{
   padding:9px;
+  opacity:1;
+}
+
+.App .KnightContainer.isDragging{
+  opacity:0.5;
 }
 
 .App .KnightContainer .Knight{
@@ -51,8 +65,10 @@
 
 .App .Square.black .Knight{
   border:2px solid white;
+  background-color:black;
 }
 
 .App .Square.white .Knight{
   border:2px solid black;
+  background-color:white;
 }
