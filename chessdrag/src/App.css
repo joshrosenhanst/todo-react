@@ -1,7 +1,38 @@
-.App {
-
+.App .hero{
+  text-align:center;
 }
 
-.App .title{
+.App .Board{
+  margin:0 auto;
+  width:400px;
+  height:400px;
+  display:flex;
+  flex-wrap: wrap;
   text-align:center;
+}
+
+.App .Square{
+  width:12.5%;
+  border:1px solid black;
+  height:12.5%;
+  text-align:center;
+}
+
+.App .Square.black{
+  background-color:black;
+  color:white;
+}
+
+.App .Square.white{
+  background-color:white;
+  color:black;
+}
+
+.App .Knight{
+  height:100%;
+  width:100%;
+}
+
+.App .Square:hover .Knight{
+  color:#9a9a9a;
 }
