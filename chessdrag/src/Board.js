@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Square from './Square';
 import Knight from './Knight';
+import { canMoveKnight, moveKnight } from './Game';
 
 class Board extends Component{
     renderSquare(i) {
@@ -14,10 +15,18 @@ class Board extends Component{
 
         
         return (
-            <Square black={black} key={i}>
-                {piece}
-            </Square>
+            <div key={i} className={"SquareContainer "+(canMoveKnight(x,y) ? 'isMoveable':'')} onClick={() => this.handleSquareClick(x,y)}>
+                <Square black={black}>
+                    {piece}
+                </Square>
+            </div>
         );
+    }
+
+    handleSquareClick(toX, toY){
+        if(canMoveKnight(toX, toY)){
+            moveKnight(toX, toY);
+        }
     }
 
     render(){

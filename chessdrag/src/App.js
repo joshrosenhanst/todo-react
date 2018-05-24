@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 import './App.css';
 import Board from './Board';
 
 class App extends Component {
   render() {
+    const knightPosition = this.props.knightPosition;
     return (
       <div className="App">
         <section className="hero is-dark">
@@ -16,7 +18,7 @@ class App extends Component {
         </section>
         <section className="section">
           <div className="container">
-            <Board knightPosition={[0,1]} />
+            <Board knightPosition={knightPosition} />
           </div>
         </section>
       </div>
