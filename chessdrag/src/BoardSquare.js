@@ -6,6 +6,10 @@ import { ItemTypes } from './ItemTypes';
 import { DropTarget } from 'react-dnd';
 
 const squareTarget = {
+    canDrop(props) {
+        return canMoveKnight(props.x, props.y);
+    },
+
     drop(props) {
         moveKnight(props.x, props.y);
     }
@@ -14,7 +18,8 @@ const squareTarget = {
 function collect(connect, monitor){
     return {
         connectDropTarget: connect.dropTarget(),
-        isOver: monitor.isOver()
+        isOver: monitor.isOver(),
+        canDrop: monitor.canDrop()
     }
 }
 
@@ -37,7 +42,8 @@ BoardSquare.propTypes = {
     x: PropTypes.number.isRequired,
     y: PropTypes.number.isRequired,
     connectDropTarget: PropTypes.func.isRequired,
-    isOver: PropTypes.bool.isRequired
+    isOver: PropTypes.bool.isRequired,
+    canDrop: PropTypes.bool.isRequired
 };
 
 export default DropTarget(ItemTypes.KNIGHT, squareTarget, collect)(BoardSquare);
