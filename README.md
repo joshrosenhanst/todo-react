@@ -1,2 +1,3 @@
 # todo-react
-Todo App built on React.js
+
+React sample projects
